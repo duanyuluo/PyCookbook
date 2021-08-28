@@ -1,0 +1,73 @@
+#encoding=utf-8
+
+from tools import *
+
+# This is a comments, 
+# it will be NOT execute after symbol # to the end of line
+
+"""
+This is a comment block.
+You can type any text and any lines between the trible symbol "
+"""
+
+# define a variables without any TYPE declarement
+a = 10      # a is int type
+b = "10"    # b is string type
+b = '10'    # same above
+c = 10.0    # c is float type
+
+# use type() to get variable type
+print("a = 10", probe_var(a))
+print("b = '10'", probe_var(b))
+print("c = 10.0", probe_var(c))
+
+# python is a Case-Sensitive language
+# so, 'a' and 'A' are two different variables
+A = 20  # this code can not modify the variable 'a' value 
+print("a =", a, " and A =", A)
+
+# casting some type to other type
+print("str(10)", probe_var(str(a)))
+print("int('10')", probe_var(int(b)))
+
+# clearly recorgnize the different between string type and int type
+print("10 != '10'", probe_var(a == b))
+print("str(10) == '10'", probe_var(str(a) == b))
+print("10 + 10 = ", probe_var(a + a))
+print("'10' + '10' = ", probe_var(b + b))
+print("10 * 10 = ", probe_var(a * a))
+print("'10' * 10 = ", probe_var(b * a))
+
+# A variable name can only contain alpha-numeric characters and underscores (A-z, 0-9, and _ )
+# and NOT start with number and underscores
+# three popular name style:
+# 1. Camel Case
+strName = "MicroFountain"
+# 2. Pascal Case    <-- this is my Class's favarite style
+StrName = "MicroFountain"
+# 3. Snake Case <-- this is my Variable and Function's favarite style
+str_name = "MicroFountain"
+
+# assign mutiple values
+x, y, z = 10, "10", 10.0
+print("x=", probe_var(x))
+print("y=", probe_var(y))
+print("z=", probe_var(z))
+
+# and above code equal below (unpack collection assign)
+x, y, z = (10, "10", 10.0)  # unpack tuple
+x, y, z = [10, "10", 10.0]  # unpack array
+
+# global variable and local variable
+x = "awesome"   # global variable, you can look as '_global_x'
+
+def func():
+    x = "fantastic" # local variable, you can look as '_local_func_x'
+    print(x)
+    global y
+    y = "20"        # global keyword, you can look as '_global_y'
+
+# so, _global_x and _local_func_x are two different variables
+print("local variable x =", func())      # use _local_func_x
+print("global variable x =", x)          # use _global_x
+print("global variable y=", y)           # use _global_y, so is '20', not '10'
