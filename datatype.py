@@ -29,7 +29,5 @@ print("bytearray(5)", probe_var(bytearray(5)))
 print(probe_var(bytes(5)))
 
 import random
-random_nums = []
-for num in range(10):
-    random_nums.append(random.randrange(1, 10))
-print("random.randrange 10 times are ", probe_var(random_nums))
+array_rdm = [random.randrange(1, 10) for rdm in range(10)]
+print("random.randrange 10 times are ", probe_var(array_rdm))
